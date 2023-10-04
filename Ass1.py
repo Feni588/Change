@@ -7,7 +7,7 @@ def create_match_pairs(teams):
     for i in range(len(teams)):
         for j in range(i+1, len(teams)):
             pairs.append((teams[i], teams[j]))
-    return pairs
+    return pair
 
 def create_match_schedule(teams, num_matches, venues, rival_matches):
     all_pairs = create_match_pairs(teams)
