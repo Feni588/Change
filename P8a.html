@@ -1,0 +1,31 @@
+<head>
+    <title>21BCM016 Practical8a</title>
+    <script>
+        function calculateDenomination() {
+            const amount = parseInt(document.getElementById("amountInput").value);
+            
+            const denominations = [100, 50, 20, 10, 5, 2, 1];
+            let result = [];
+
+            let remainingAmount = amount;
+
+            for (let denomination of denominations) {
+                const numberOfNotes = Math.floor(remainingAmount / denomination);
+                if (numberOfNotes > 0) {
+                    result.push(`${denomination} - ${numberOfNotes}`);
+                    remainingAmount -= numberOfNotes * denomination;
+                }
+            }
+
+            const output = document.getElementById("output");
+            output.innerHTML = "The denomination of the amount deposited:<br>" + result.join("<br>");
+        }
+    </script>
+</head>
+<body>
+    <p>Enter the amount:</p>
+    <input type="number" id="amountInput">
+    <button onclick="calculateDenomination()">Find the denomination</button>
+    <div id="output"></div>
+</body>
+</html>
